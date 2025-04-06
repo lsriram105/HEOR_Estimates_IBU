@@ -1,0 +1,12 @@
+name: SAMPv1
+title: SAMPv1
+username: sriramtestenv
+account: sriramtestenv
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14293895
+bundleId: 9975310
+url: https://sriramtestenv.shinyapps.io/SAMPv1/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
