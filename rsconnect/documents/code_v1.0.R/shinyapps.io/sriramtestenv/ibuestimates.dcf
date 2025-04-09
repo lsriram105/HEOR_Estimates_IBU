@@ -1,0 +1,13 @@
+name: ibuestimates
+title: ibuestimates
+username: sriramtestenv
+account: sriramtestenv
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14460135
+bundleId: 10077564
+url: https://sriramtestenv.shinyapps.io/ibuestimates/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: renv.lock

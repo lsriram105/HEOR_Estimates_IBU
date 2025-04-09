@@ -92,7 +92,7 @@ ui <- bs4DashPage(
       bs4SidebarMenuItem(
         text = tags$span("Assumptions input", style = "font-size: 12px;"),
         tabName = "input_form",
-        icon = icon("shopping-cart")
+        icon = icon("table-list")
       ),
       bs4SidebarMenuItem(
         text = tags$span("Magnitude of exposure", style = "font-size: 12px;"),
@@ -257,14 +257,20 @@ ui <- bs4DashPage(
       ),
       tabItem(
         tabName = "input_form",
+        box(title = "Input parameters",
+          width = 12,
+          collapsed = TRUE,
+          icon = icon("table-list"),
         tabItem(
           tabName = "common_cold",
           fluidRow(
             box(
               title = "Common Cold",
-              status = "primary",
+              status = "purple",
               solidHeader = TRUE,
+              icon = icon("head-side-cough"),
               width = 12,
+              collapsed  = TRUE,
               fluidRow(
                 column(3, numericInput("person1_1", "Persona1 (%)", value = 78, min = 0, max = 100, step = 0.1)),
                 column(3, numericInput("person2_1", "Persona2 (%)", value = 12.5, min = 0, max = 100, step = 0.1)),
@@ -274,10 +280,14 @@ ui <- bs4DashPage(
                 column(3, selectInput("person2_dosage1", "Persona2 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person3_dosage1", "Persona3 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person4_dosage1", "Persona4 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
-                column(3, selectInput("Persona1_Treatment_duration_1", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =7)),
-                column(3, selectInput("Persona2_Treatment_duration_1", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =7)),
-                column(3, selectInput("Persona3_Treatment_duration_1", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =10)),
-                column(3, selectInput("Persona4_Treatment_duration_1", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =7)),
+                column(3, selectInput("Persona1_episode_duration_1", "Persona1 episode duration", choices = seq(1, 90, by = 1), selected =7)),
+                column(3, selectInput("Persona2_episode_duration_1", "Persona2 episode duration", choices = seq(1, 90, by = 1), selected =7)),
+                column(3, selectInput("Persona3_episode_duration_1", "Persona3 episode duration", choices = seq(1, 90, by = 1), selected =10)),
+                column(3, selectInput("Persona4_episode_duration_1", "Persona4 episode duration", choices = seq(1, 90, by = 1), selected =7)),
+                column(3, selectInput("Persona1_Treatment_duration_1", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona2_Treatment_duration_1", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona3_Treatment_duration_1", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona4_Treatment_duration_1", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
                 column(3, selectInput("Persona1_episodes_1", "Persona1 episodes", choices = seq(1, 30, by = 1), selected =3)),
                 column(3, selectInput("Persona2_episodes_1", "Persona2 episodes", choices = seq(1, 30, by = 1), selected =3)),
                 column(3, selectInput("Persona3_episodes_1", "Persona3 episodes", choices = seq(1, 30, by = 1), selected =2)),
@@ -291,9 +301,11 @@ ui <- bs4DashPage(
           fluidRow(
             box(
               title = "Headache or Migraine",
-              status = "primary",
+              status = "purple",
+              icon = icon("head-side-virus"),
               solidHeader = TRUE,
               width = 12,
+              collapsed  = TRUE,
               fluidRow(
                 column(3, numericInput("person1_2", "Persona1 (%)", value = 88, min = 0, max = 100, step = 0.1)),
                 column(3, numericInput("person2_2", "Persona2 (%)", value = 12, min = 0, max = 100, step = 0.1)),
@@ -303,6 +315,10 @@ ui <- bs4DashPage(
                 column(3, selectInput("person2_dosage2", "Persona2 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person3_dosage2", "Persona3 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person4_dosage2", "Persona4 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
+                column(3, selectInput("Persona1_episode_duration_2", "Persona1 episode duration", choices = seq(1, 90, by = 1), selected =1)),
+                column(3, selectInput("Persona2_episode_duration_2", "Persona2 episode duration", choices = seq(1, 90, by = 1), selected =1)),
+                column(3, selectInput("Persona3_episode_duration_2", "Persona3 episode duration", choices = seq(1, 90, by = 1), selected =1)),
+                column(3, selectInput("Persona4_episode_duration_2", "Persona4 episode duration", choices = seq(1, 90, by = 1), selected =1)),
                 column(3, selectInput("Persona1_Treatment_duration_2", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =1)),
                 column(3, selectInput("Persona2_Treatment_duration_2", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =1)),
                 column(3, selectInput("Persona3_Treatment_duration_2", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =1)),
@@ -320,9 +336,11 @@ ui <- bs4DashPage(
           fluidRow(
             box(
               title = "Menstrual or Gynecological Pain",
-              status = "primary",
+              status = "purple",
               solidHeader = TRUE,
+              icon = icon("droplet"),
               width = 12,
+              collapsed  = TRUE,
               fluidRow(
                 column(3, numericInput("person1_3", "Persona1 (%)", value = 90, min = 0, max = 100, step = 0.1)),
                 column(3, numericInput("person2_3", "Persona2 (%)", value = 10, min = 0, max = 100, step = 0.1)),
@@ -332,10 +350,14 @@ ui <- bs4DashPage(
                 column(3, selectInput("person2_dosage3", "Persona2 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person3_dosage3", "Persona3 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person4_dosage3", "Persona4 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
+                column(3, selectInput("Persona1_episode_duration_3", "Persona1 episode duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona2_episode_duration_3", "Persona2 episode duration", choices = seq(1, 90, by = 1), selected =7)),
+                column(3, selectInput("Persona3_episode_duration_3", "Persona3 episode duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona4_episode_duration_3", "Persona4 episode duration", choices = seq(1, 90, by = 1), selected =0)),
                 column(3, selectInput("Persona1_Treatment_duration_3", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
-                column(3, selectInput("Persona2_Treatment_duration_3", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =7)),
-                column(3, selectInput("Persona3_Treatment_duration_3", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =0)),
-                column(3, selectInput("Persona4_Treatment_duration_3", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona2_Treatment_duration_3", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona3_Treatment_duration_3", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona4_Treatment_duration_3", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
                 column(3, selectInput("Persona1_episodes_3", "Persona1 episodes", choices = seq(1, 30, by = 1), selected =9)),
                 column(3, selectInput("Persona2_episodes_3", "Persona2 episodes", choices = seq(1, 30, by = 1), selected =8)),
                 column(3, selectInput("Persona3_episodes_3", "Persona3 episodes", choices = seq(1, 30, by = 1), selected =0)),
@@ -349,9 +371,11 @@ ui <- bs4DashPage(
           fluidRow(
             box(
               title = "Body or Muscle Pain",
-              status = "primary",
+              status = "purple",
               solidHeader = TRUE,
+              icon = icon("person"),
               width = 12,
+              collapsed  = TRUE,
               fluidRow(
                 column(3, numericInput("person1_4", "Persona1 (%)", value = 77, min = 0, max = 100, step = 0.1)),
                 column(3, numericInput("person2_4", "Persona2 (%)", value = 23, min = 0, max = 100, step = 0.1)),
@@ -361,10 +385,14 @@ ui <- bs4DashPage(
                 column(3, selectInput("person2_dosage4", "Persona2 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person3_dosage4", "Persona3 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person4_dosage4", "Persona4 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
-                column(3, selectInput("Persona1_Treatment_duration_4", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =2)),
-                column(3, selectInput("Persona2_Treatment_duration_4", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =90)),
-                column(3, selectInput("Persona3_Treatment_duration_4", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =0)),
-                column(3, selectInput("Persona4_Treatment_duration_4", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona1_episode_duration_4", "Persona1 episode duration", choices = seq(1, 90, by = 1), selected =2)),
+                column(3, selectInput("Persona2_episode_duration_4", "Persona2 episode duration", choices = seq(1, 90, by = 1), selected =90)),
+                column(3, selectInput("Persona3_episode_duration_4", "Persona3 episode duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona4_episode_duration_4", "Persona4 episode duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona1_Treatment_duration_4", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona2_Treatment_duration_4", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona3_Treatment_duration_4", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona4_Treatment_duration_4", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
                 column(3, selectInput("Persona1_episodes_4", "Persona1 episodes", choices = seq(1, 30, by = 1), selected =3)),
                 column(3, selectInput("Persona2_episodes_4", "Persona2 episodes", choices = seq(1, 30, by = 1), selected =1)),
                 column(3, selectInput("Persona3_episodes_4", "Persona3 episodes", choices = seq(1, 30, by = 1), selected =0)),
@@ -378,9 +406,11 @@ ui <- bs4DashPage(
           fluidRow(
             box(
               title = "Mouth or Dental Pain",
-              status = "primary",
+              status = "purple",
+              icon = icon("tooth"),
               solidHeader = TRUE,
               width = 12,
+              collapsed  = TRUE,
               fluidRow(
                 column(3, numericInput("person1_5", "Persona1 (%)", value = 89, min = 0, max = 100, step = 0.1)),
                 column(3, numericInput("person2_5", "Persona2 (%)", value = 11, min = 0, max = 100, step = 0.1)),
@@ -390,10 +420,14 @@ ui <- bs4DashPage(
                 column(3, selectInput("person2_dosage5", "Persona2 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person3_dosage5", "Persona3 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
                 column(3, selectInput("person4_dosage5", "Persona4 Dosage (mg)", choices = seq(600, 2400, by = 600), selected =1200)),
-                column(3, selectInput("Persona1_Treatment_duration_5", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =14)),
-                column(3, selectInput("Persona2_Treatment_duration_5", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =30)),
-                column(3, selectInput("Persona3_Treatment_duration_5", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =0)),
-                column(3, selectInput("Persona4_Treatment_duration_5", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona1_episode_duration_5", "Persona1 episode duration", choices = seq(1, 90, by = 1), selected =14)),
+                column(3, selectInput("Persona2_episode_duration_5", "Persona2 episode duration", choices = seq(1, 90, by = 1), selected =30)),
+                column(3, selectInput("Persona3_episode_duration_5", "Persona3 episode duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona4_episode_duration_5", "Persona4 episode duration", choices = seq(1, 90, by = 1), selected =0)),
+                column(3, selectInput("Persona1_Treatment_duration_5", "Persona1 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona2_Treatment_duration_5", "Persona2 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona3_Treatment_duration_5", "Persona3 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
+                column(3, selectInput("Persona4_Treatment_duration_5", "Persona4 treatement duration", choices = seq(1, 90, by = 1), selected =3)),
                 column(3, selectInput("Persona1_episodes_5", "Persona1 episodes", choices = seq(1, 30, by = 1), selected =2)),
                 column(3, selectInput("Persona2_episodes_5", "Persona2 episodes", choices = seq(1, 30, by = 1), selected =1)),
                 column(3, selectInput("Persona3_episodes_5", "Persona3 episodes", choices = seq(1, 30, by = 1), selected =0)),
@@ -401,6 +435,7 @@ ui <- bs4DashPage(
               )
             )
           )
+        )
         ),
         fluidRow(
           column(12, 
@@ -462,6 +497,17 @@ ui <- bs4DashPage(
         tabName = "country_level_estimate",
         fluidRow(
           width = 12,
+          box(title = "Country Selection",
+            width = 12,collapsed =TRUE,column(width =1 ,selectInput("country6", "Country:", choices = NULL))),
+          
+          box(width = 12,align = "center",
+              fluidRow(column(width =10 ,
+                   tags$h1(tags$b("Country Level Socioeconomic Estimates of Reverse Switching Ibuprofen"))),
+            column(2,align = "center",
+                   uiOutput("flag")
+            )
+            
+            )),
           box(
             width = 12,
             fluidRow(bs4ValueBoxOutput("patients_impacted", width = 6),
@@ -743,6 +789,10 @@ server <- function(input, output, session) {
     updateSelectInput(session, "category2", choices = unique(rx_data$Category))
   })
   
+  observe({
+    updateSelectInput(session, "country6", choices = unique(rx_data$country))
+  })
+  
   
   observe({
     updateSelectInput(session, "country5", choices = unique(rx_data$country))
@@ -824,6 +874,9 @@ server <- function(input, output, session) {
   burden_estimate_path <- 'www/Burden_estimate.xlsx'
   
   burden_data <- read_excel(burden_estimate_path, sheet = "Sheet1")
+  
+  burden_data <- burden_data %>%
+    filter(strength <=400)
   
   filteredBurdenData <- reactive({
     req(input$country3)
@@ -1096,6 +1149,10 @@ server <- function(input, output, session) {
       Person2_dosage = as.numeric(input$person2_dosage1),
       Person3_dosage = as.numeric(input$person3_dosage1),
       Person4_dosage = as.numeric(input$person4_dosage1),
+      Person1_Episode_Duration = as.numeric(input$Persona1_episode_duration_1),
+      Person2_Episode_Duration = as.numeric(input$Persona2_episode_duration_1),
+      Person3_Episode_Duration = as.numeric(input$Persona3_episode_duration_1),
+      Person4_Episode_Duration = as.numeric(input$Persona4_episode_duration_1),
       Person1_Treatment_Duration = as.numeric(input$Persona1_Treatment_duration_1),
       Person2_Treatment_Duration = as.numeric(input$Persona2_Treatment_duration_1),
       Person3_Treatment_Duration = as.numeric(input$Persona3_Treatment_duration_1),
@@ -1115,6 +1172,10 @@ server <- function(input, output, session) {
       Person2_dosage = as.numeric(input$person2_dosage2),
       Person3_dosage = as.numeric(input$person3_dosage2),
       Person4_dosage = as.numeric(input$person4_dosage2),
+      Person1_Episode_Duration = as.numeric(input$Persona1_episode_duration_2),
+      Person2_Episode_Duration = as.numeric(input$Persona2_episode_duration_2),
+      Person3_Episode_Duration = as.numeric(input$Persona3_episode_duration_2),
+      Person4_Episode_Duration = as.numeric(input$Persona4_episode_duration_2),
       Person1_Treatment_Duration = as.numeric(input$Persona1_Treatment_duration_2),
       Person2_Treatment_Duration = as.numeric(input$Persona2_Treatment_duration_2),
       Person3_Treatment_Duration = as.numeric(input$Persona3_Treatment_duration_2),
@@ -1134,6 +1195,10 @@ server <- function(input, output, session) {
       Person2_dosage = as.numeric(input$person2_dosage3),
       Person3_dosage = as.numeric(input$person3_dosage3),
       Person4_dosage = as.numeric(input$person4_dosage3),
+      Person1_Episode_Duration = as.numeric(input$Persona1_episode_duration_3),
+      Person2_Episode_Duration = as.numeric(input$Persona2_episode_duration_3),
+      Person3_Episode_Duration = as.numeric(input$Persona3_episode_duration_3),
+      Person4_Episode_Duration = as.numeric(input$Persona4_episode_duration_3),
       Person1_Treatment_Duration = as.numeric(input$Persona1_Treatment_duration_3),
       Person2_Treatment_Duration = as.numeric(input$Persona2_Treatment_duration_3),
       Person3_Treatment_Duration = as.numeric(input$Persona3_Treatment_duration_3),
@@ -1154,6 +1219,10 @@ server <- function(input, output, session) {
       Person2_dosage = as.numeric(input$person2_dosage4),
       Person3_dosage = as.numeric(input$person3_dosage4),
       Person4_dosage = as.numeric(input$person4_dosage5),
+      Person1_Episode_Duration = as.numeric(input$Persona1_episode_duration_4),
+      Person2_Episode_Duration = as.numeric(input$Persona2_episode_duration_4),
+      Person3_Episode_Duration = as.numeric(input$Persona3_episode_duration_4),
+      Person4_Episode_Duration = as.numeric(input$Persona4_episode_duration_4),
       Person1_Treatment_Duration = as.numeric(input$Persona1_Treatment_duration_4),
       Person2_Treatment_Duration = as.numeric(input$Persona2_Treatment_duration_4),
       Person3_Treatment_Duration = as.numeric(input$Persona3_Treatment_duration_4),
@@ -1174,6 +1243,10 @@ server <- function(input, output, session) {
       Person2_dosage = as.numeric(input$person2_dosage5),
       Person3_dosage = as.numeric(input$person3_dosage5),
       Person4_dosage = as.numeric(input$person4_dosage5),
+      Person1_Episode_Duration = as.numeric(input$Persona1_episode_duration_5),
+      Person2_Episode_Duration = as.numeric(input$Persona2_episode_duration_5),
+      Person3_Episode_Duration = as.numeric(input$Persona3_episode_duration_5),
+      Person4_Episode_Duration = as.numeric(input$Persona4_episode_duration_5),
       Person1_Treatment_Duration = as.numeric(input$Persona1_Treatment_duration_5),
       Person2_Treatment_Duration = as.numeric(input$Persona2_Treatment_duration_5),
       Person3_Treatment_Duration = as.numeric(input$Persona3_Treatment_duration_5),
@@ -1189,9 +1262,9 @@ server <- function(input, output, session) {
     data <- data %>%
       mutate(Factor_to_population = 1 / (
         (Person1 * Person1_dosage * Person1_Treatment_Duration * Person1_Episodes *0.01) +
-          (Person2 * Person2_dosage * Person2_Treatment_Duration * Person2_Episodes*0.01) +
-          (Person3 * Person3_dosage * Person3_Treatment_Duration * Person3_Episodes*0.01) +
-          (Person4 * Person4_dosage * Person4_Treatment_Duration * Person4_Episodes*0.01)
+          (Person2 * Person2_dosage * Person1_Treatment_Duration * Person2_Episodes*0.01) +
+          (Person3 * Person3_dosage * Person1_Treatment_Duration * Person3_Episodes*0.01) +
+          (Person4 * Person4_dosage * Person1_Treatment_Duration * Person4_Episodes*0.01)
       ))
     #data$Country <- input$country5\\\
     
@@ -1224,14 +1297,16 @@ server <- function(input, output, session) {
         select(Category, MG_per_category, Factor_to_population) %>%
         mutate(Patients_per_category = ceiling((MG_per_category * Factor_to_population) / 1)) %>%
         arrange(desc(Patients_per_category)) %>%
-        left_join(pop_factor_2, by = "Category")
+        left_join(pop_factor_2, by = "Category")%>%
+        filter(Category != "Others" )
     }
     else if (i==2)
     {
       result <- x %>%
         left_join(result, by = "Category") %>%
         mutate(Patients_per_category = ceiling((MG_per_category * Factor_to_population) / 1)) %>%
-        arrange(desc(Patients_per_category))
+        arrange(desc(Patients_per_category))%>%
+        filter(Category != "Others" )
     }
     
     result
@@ -2729,6 +2804,9 @@ server <- function(input, output, session) {
   
   burden_data <- read_excel(burden_estimate_path, sheet = "Sheet1")
   
+  burden_data <- burden_data %>%
+    filter(strength <=400)
+  
   filteredBurdenData <- reactive({
     req(input$country3)
     burden_summary <- burden_data %>%
@@ -2773,6 +2851,9 @@ server <- function(input, output, session) {
   ibu_mol_chart_data <- 'www/Burden_estimate.xlsx'
   
   ibu_mol_chart_data <- read_excel(ibu_mol_chart_data, sheet = "Sheet1")
+  
+  burden_data <- burden_data %>%
+    filter(strength <=400)
   
   filteredmolchartData <- reactive({
     req(input$country_mol)
@@ -2898,6 +2979,64 @@ server <- function(input, output, session) {
   
   
   
+  dummy_text <- reactive({
+    input$country6
+      
+  })
+  
+  
+  output$flag <- renderUI({
+    country_code <- switch(dummy_text(),
+                           "France" = "fr",
+                           "Germany" = "de",
+                           "Italy" = "it",
+                           "Poland" = "pl",
+                           "Romania" = "ro",
+                           "unknown")
+    tagList(
+      tags$img(src = paste0("https://flagcdn.com/256x192/", country_code, ".png"), height = "50px", width = "50px"),
+      tags$h4(tags$b(dummy_text()))
+    )
+    
+    #tags$h1(tags$b(dummy_text()))
+  })
+  
+  
+  selected_country <- reactiveVal("USA")
+  
+  observeEvent(input$country1, {
+    selected_country(input$country1)
+  })
+  
+  observeEvent(input$country2, {
+    selected_country(input$country2)
+  })
+  
+  observeEvent(input$country3, {
+    selected_country(input$country3)
+  })
+  
+  observeEvent(input$country4, {
+    selected_country(input$country4)
+  })
+  
+  observeEvent(input$country5, {
+    selected_country(input$country5)
+  })
+  
+  observeEvent(input$country6, {
+    selected_country(input$country6)
+  })
+
+  
+  observe({
+    updateSelectInput(session, "country1", selected = selected_country())
+    updateSelectInput(session, "country2", selected = selected_country())
+    updateSelectInput(session, "country3", selected = selected_country())
+    updateSelectInput(session, "country4", selected = selected_country())
+    updateSelectInput(session, "country5", selected = selected_country())
+    updateSelectInput(session, "country6", selected = selected_country())
+  })
   
   
   
